@@ -1,111 +1,133 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Soluciones AI Inteligentes - HSE</title>
+  <title>Kroko AI | Consultoría en Inteligencia Artificial</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     :root {
-      --color-bg: #f5f7fa;
-      --color-primary: #2c3e50;
-      --color-accent: #3498db;
+      --color-bg: #f9fbfc;
+      --color-primary: #1f2c3b;
+      --color-accent: #1abc9c;
       --color-light: #ffffff;
-      --color-dark: #333;
+      --color-dark: #2d3436;
+      --color-muted: #7f8c8d;
     }
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--color-bg);
+      background-color: var(--color-bg);
       color: var(--color-dark);
+      line-height: 1.6;
     }
     header {
-      background-color: var(--color-primary);
+      background: linear-gradient(120deg, var(--color-primary), #34495e);
       color: var(--color-light);
-      padding: 2rem;
+      padding: 3rem 1rem;
       text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
     }
     nav {
       background-color: var(--color-primary);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
     }
     nav ul {
-      margin: 0;
-      padding: 1rem;
       display: flex;
       justify-content: center;
       list-style: none;
+      margin: 0;
+      padding: 1rem;
       gap: 2rem;
     }
     nav a {
       color: white;
+      font-weight: 500;
       text-decoration: none;
-      font-weight: bold;
+      transition: 0.3s ease;
     }
     nav a:hover {
-      text-decoration: underline;
+      color: var(--color-accent);
     }
     section {
-      padding: 3rem 1rem;
-      max-width: 1000px;
+      padding: 4rem 1.5rem;
+      max-width: 1100px;
       margin: auto;
     }
     h2 {
+      font-size: 2rem;
       color: var(--color-primary);
       margin-bottom: 1rem;
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+      padding-bottom: 0.3rem;
     }
     .carousel {
       display: flex;
       overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
+      border-radius: 15px;
+      margin-bottom: 3rem;
     }
     .carousel img {
       width: 100%;
       animation: slide 15s infinite;
     }
     @keyframes slide {
-      0%, 33% { transform: translateX(0%); }
+      0%, 33% { transform: translateX(0); }
       34%, 66% { transform: translateX(-100%); }
       67%, 100% { transform: translateX(-200%); }
     }
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
     .card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      padding: 1.5rem;
+      background-color: var(--color-light);
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      padding: 2rem;
       text-align: center;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card i {
+      font-size: 2rem;
+      color: var(--color-accent);
+      margin-bottom: 1rem;
     }
     footer {
+      background-color: #ecf0f1;
       text-align: center;
       font-size: 0.9rem;
-      color: #888;
       padding: 2rem;
-      background-color: #eee;
+      color: var(--color-muted);
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Soluciones AI para Empresas Modernas</h1>
-    <p>Impulsamos tus procesos con visión por computador, machine learning y automatización inteligente.</p>
+    <h1>Kroko AI: Soluciones Inteligentes para Empresas Visionarias</h1>
+    <p>Consultoría en inteligencia artificial para acelerar la transformación digital de tu negocio.</p>
   </header>
 
   <nav>
     <ul>
       <li><a href="#inicio">Inicio</a></li>
       <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#casos">Casos de uso</a></li>
+      <li><a href="#casos">Casos de Uso</a></li>
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
@@ -113,53 +135,77 @@
 
   <section id="inicio">
     <div class="carousel">
-      <img src="img/slide1.jpg" alt="AI en acción" />
-      <img src="img/slide2.jpg" alt="Machine learning industrial" />
-      <img src="img/slide3.jpg" alt="Automatización inteligente" />
+      <img src="img/slide1.jpg" alt="Transformación digital con AI">
+      <img src="img/slide2.jpg" alt="Machine learning en procesos industriales">
+      <img src="img/slide3.jpg" alt="Automatización inteligente para empresas">
     </div>
   </section>
 
   <section id="servicios">
-    <h2>Servicios</h2>
+    <h2>Servicios de Consultoría</h2>
     <div class="services">
       <div class="card">
-        <h3><i class="fas fa-eye"></i> Visión por Computador</h3>
-        <p>Detecta objetos, personas, anomalías y automatiza procesos visuales con algoritmos avanzados.</p>
+        <i class="fas fa-eye"></i>
+        <h3>Visión por Computador</h3>
+        <p>Implementamos sistemas avanzados de análisis de imágenes y video que permiten automatizar inspecciones, detectar anomalías y monitorear entornos en tiempo real con precisión quirúrgica.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-brain"></i> Machine Learning</h3>
-        <p>Modelos predictivos personalizados para entender, clasificar y anticipar comportamientos.</p>
+        <i class="fas fa-brain"></i>
+        <h3>Machine Learning Aplicado</h3>
+        <p>Diseñamos e integramos modelos predictivos que permiten anticipar la demanda, optimizar recursos y tomar decisiones basadas en datos en sectores como salud, minería, retail y logística.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-database"></i> Ingeniería de Datos</h3>
-        <p>Arquitectura, limpieza, integración y explotación de datos para maximizar el valor de tu información.</p>
+        <i class="fas fa-database"></i>
+        <h3>Ingeniería de Datos</h3>
+        <p>Desde la adquisición y limpieza de datos hasta su explotación analítica, construimos pipelines robustos que convierten tu información en un activo estratégico para tu organización.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-robot"></i>
+        <h3>Automatización Inteligente</h3>
+        <p>Desarrollamos sistemas que integran inteligencia artificial con RPA para reducir tareas repetitivas, acelerar procesos y liberar el talento humano para funciones de mayor valor.</p>
       </div>
     </div>
   </section>
 
   <section id="casos">
-    <h2>Casos de uso</h2>
-    <p>Desde automatización de inspecciones industriales hasta predicción de mantenimiento, nuestros modelos ayudan a reducir costos y errores humanos.</p>
+    <h2>Casos de Éxito</h2>
+    <p>
+      En Kroko AI hemos transformado operaciones a lo largo de diversas industrias:
+      <ul>
+        <li><strong>Inspección Visual Automatizada:</strong> sistemas con visión por computador que reducen tiempos de control de calidad en 60% en manufactura.</li>
+        <li><strong>Mantenimiento Predictivo:</strong> modelos de aprendizaje automático que anticipan fallos mecánicos en flotas y maquinaria crítica.</li>
+        <li><strong>Optimización Logística:</strong> algoritmos personalizados que disminuyen hasta un 20% los costos operacionales en la cadena de suministro.</li>
+        <li><strong>Análisis Cognitivo del Cliente:</strong> sistemas que interpretan emociones y comportamiento para personalizar la experiencia de usuario en tiempo real.</li>
+      </ul>
+    </p>
   </section>
 
   <section id="nosotros">
-    <h2>Sobre nosotros</h2>
-    <p>Somos un equipo multidisciplinario apasionado por la innovación. Llevamos inteligencia artificial a empresas que quieren transformar su operación.</p>
+    <h2>Quiénes Somos</h2>
+    <p>
+      Kroko AI es un equipo de científicos de datos, ingenieros de software y estrategas digitales comprometidos con elevar el potencial de las empresas a través de la inteligencia artificial.
+      <br /><br />
+      Nos especializamos en detectar oportunidades de automatización, diseñar soluciones robustas y acompañar a nuestros clientes en el camino hacia una cultura de innovación sostenida.
+      Nuestra filosofía se basa en la ética, la transparencia y el impacto medible.
+    </p>
   </section>
 
   <section id="contacto">
-    <h2>Contáctanos</h2>
-    <p>Un agente virtual te guiará para que puedas agendar una demo, resolver dudas o solicitar una cotización.</p>
-    <!-- Agente de Jotform embebido -->
+    <h2>Conversemos</h2>
+    <p>
+      ¿Quieres llevar tu empresa al siguiente nivel? Agenda una demo personalizada o consulta gratuita con uno de nuestros especialistas. 
+      Estamos listos para ayudarte a imaginar, diseñar y ejecutar tu próxima solución inteligente.
+    </p>
     <script
       src='https://cdn.jotfor.ms/agent/embedjs/0196d64eea127ec4a1bc7a77821b2d18d3d2/embed.js?skipWelcome=1&maximizable=1'>
     </script>
   </section>
 
   <footer>
-    &copy; 2025 Soluciones HSE AI. Todos los derechos reservados.
+    &copy; 2025 Kroko AI. Consultoría en Inteligencia Artificial. Todos los derechos reservados.
   </footer>
 
 </body>
 </html>
+
 
