@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soluciones AI Inteligentes - HSE</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --color-bg: #f5f7fa;
+      --color-primary: #2c3e50;
+      --color-accent: #3498db;
+      --color-light: #ffffff;
+      --color-dark: #333;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-dark);
+    }
+    header {
+      background-color: var(--color-primary);
+      color: var(--color-light);
+      padding: 2rem;
+      text-align: center;
+    }
+    nav {
+      background-color: var(--color-primary);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav ul {
+      margin: 0;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 2rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 3rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+    }
+    .carousel {
+      display: flex;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    .carousel img {
+      width: 100%;
+      animation: slide 15s infinite;
+    }
+    @keyframes slide {
+      0%, 33% { transform: translateX(0%); }
+      34%, 66% { transform: translateX(-100%); }
+      67%, 100% { transform: translateX(-200%); }
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      padding: 2rem;
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Soluciones AI para Empresas Modernas</h1>
+    <p>Impulsamos tus procesos con visión por computador, machine learning y automatización inteligente.</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#casos">Casos de uso</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section id="inicio">
+    <div class="carousel">
+      <img src="img/slide1.jpg" alt="AI en acción" />
+      <img src="img/slide2.jpg" alt="Machine learning industrial" />
+      <img src="img/slide3.jpg" alt="Automatización inteligente" />
+    </div>
+  </section>
+
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <div class="services">
+      <div class="card">
+        <h3><i class="fas fa-eye"></i> Visión por Computador</h3>
+        <p>Detecta objetos, personas, anomalías y automatiza procesos visuales con algoritmos avanzados.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+        <p>Modelos predictivos personalizados para entender, clasificar y anticipar comportamientos.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-database"></i> Ingeniería de Datos</h3>
+        <p>Arquitectura, limpieza, integración y explotación de datos para maximizar el valor de tu información.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="casos">
+    <h2>Casos de uso</h2>
+    <p>Desde automatización de inspecciones industriales hasta predicción de mantenimiento, nuestros modelos ayudan a reducir costos y errores humanos.</p>
+  </section>
+
+  <section id="nosotros">
+    <h2>Sobre nosotros</h2>
+    <p>Somos un equipo multidisciplinario apasionado por la innovación. Llevamos inteligencia artificial a empresas que quieren transformar su operación.</p>
+  </section>
+
+  <section id="contacto">
+    <h2>Contáctanos</h2>
+    <p>Un agente virtual te guiará para que puedas agendar una demo, resolver dudas o solicitar una cotización.</p>
+    <!-- Agente de Jotform embebido -->
+    <script
+      src='https://cdn.jotfor.ms/agent/embedjs/0196da8138c87d8984eb9a4b3029c245a3c0/embed.js?skipWelcome=1&maximizable=1'>
+    </script>
+  </section>
+
+  <footer>
+    &copy; 2025 Soluciones HSE AI. Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>
+
