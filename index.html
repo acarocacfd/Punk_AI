@@ -169,16 +169,86 @@
 
   <section id="casos">
     <h2>Casos de Éxito</h2>
-    <p>
-      En Kroko AI hemos transformado operaciones a lo largo de diversas industrias:
-      <ul>
-        <li><strong>Inspección Visual Automatizada:</strong> sistemas con visión por computador que reducen tiempos de control de calidad en 60% en manufactura.</li>
-        <li><strong>Mantenimiento Predictivo:</strong> modelos de aprendizaje automático que anticipan fallos mecánicos en flotas y maquinaria crítica.</li>
-        <li><strong>Optimización Logística:</strong> algoritmos personalizados que disminuyen hasta un 20% los costos operacionales en la cadena de suministro.</li>
-        <li><strong>Análisis Cognitivo del Cliente:</strong> sistemas que interpretan emociones y comportamiento para personalizar la experiencia de usuario en tiempo real.</li>
-      </ul>
-    </p>
+    <div class="success-cases">
+
+      <div class="case">
+        <div class="case-text">
+          <h3>Identiface AI: Reconocimiento Facial Inteligente</h3>
+          <p>
+            Desarrollamos un sistema de reconocimiento facial en tiempo real basado en deep learning, capaz de identificar personas en entornos dinámicos con alta precisión.
+            Aplicado en control de acceso seguro, gestión de asistencia y monitoreo inteligente en espacios públicos o privados.
+          </p>
+        </div>
+        <div class="case-img">
+          <img src="img/reconocimiento_facial.jpg" alt="Reconocimiento Facial" />
+        </div>
+      </div>
+
+      <div class="case">
+        <div class="case-text">
+          <h3>ParkGuard: Vigilancia Automatizada de Estacionamientos</h3>
+          <p>
+            Usamos visión por computador para detectar, contar y monitorear vehículos en zonas de estacionamiento. Nuestro sistema permite calcular ocupación en tiempo real, identificar patrones de uso y optimizar la gestión de espacios urbanos o comerciales.
+          </p>
+        </div>
+        <div class="case-img">
+          <img src="img/vigilancia_estacionamiento.jpg" alt="Vigilancia de Estacionamientos" />
+        </div>
+      </div>
+
+      <div class="case">
+        <div class="case-text">
+          <h3>PPE Watch: Detección Inteligente de Equipos de Protección</h3>
+          <p>
+            Implementamos modelos de IA entrenados para identificar el uso correcto de EPP (casco, chaleco, guantes, etc.) en zonas industriales. El sistema alerta en tiempo real sobre incumplimientos, mejorando la seguridad laboral y reduciendo riesgos operacionales.
+          </p>
+        </div>
+        <div class="case-img">
+          <img src="img/ppe_detection.jpg" alt="Detección de PPE" />
+        </div>
+      </div>
+
+    </div>
   </section>
+
+  <style>
+    .success-cases {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .case {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .case-text h3 {
+      margin-bottom: 0.5rem;
+      color: var(--color-primary);
+    }
+
+    .case-text p {
+      color: var(--color-dark);
+    }
+
+    .case-img img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .case {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  >
+
 
   <section id="nosotros">
     <h2>Quiénes Somos</h2>
