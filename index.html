@@ -17,6 +17,7 @@
       --color-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       --color-gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
       --color-gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --color-gradient-4: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
       --color-text-light: #ffffff;
       --color-text-muted: #8892b0;
       --color-text-dark: #ccd6f6;
@@ -194,6 +195,7 @@
       color: var(--color-text-muted);
       margin-bottom: 3rem;
       font-weight: 400;
+      text-align: justify;
     }
 
     .cta-buttons {
@@ -276,6 +278,7 @@
       color: var(--color-text-muted);
       max-width: 600px;
       margin: 0 auto;
+      text-align: justify;
     }
 
     /* Services Grid */
@@ -294,6 +297,7 @@
       transition: var(--transition);
       position: relative;
       overflow: hidden;
+      text-align: center;
     }
 
     .service-card::before {
@@ -326,7 +330,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.5rem;
+      margin: 0 auto 1.5rem auto;
       font-size: 1.5rem;
       color: white;
     }
@@ -512,6 +516,10 @@
         padding: 1rem;
       }
       
+      .hero-subtitle {
+        text-align: center;
+      }
+      
       .cta-buttons {
         flex-direction: column;
         align-items: center;
@@ -649,6 +657,14 @@
         </div>
         <h3>Intelligent Process Automation</h3>
         <p>Integración de IA con RPA para automatización cognitiva avanzada. Combinamos natural language processing, document AI y decision engines para crear workflows inteligentes que manejan procesos complejos de negocio.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background: var(--color-gradient-4);">
+          <i class="fas fa-tags"></i>
+        </div>
+        <h3>Data Annotation & Preprocessing</h3>
+        <p>Servicios especializados de etiquetado y preprocesamiento de datos para entrenamiento de modelos de machine learning, computer vision y transformers. Incluye annotation workflows, quality assurance, data augmentation, feature engineering y pipeline optimization para datasets de alta calidad que maximizan el rendimiento de modelos de IA.</p>
       </div>
     </div>
   </section>
@@ -818,25 +834,4 @@
     </div>
 
     <div class="contact-container">
-      <p style="margin-bottom: 2rem; font-size: 1.1rem; color: var(--color-text-muted); text-align: justify;">
-        <strong>Emil-IA</strong> es nuestro asistente de inteligencia artificial conversacional, 
-        entrenado específicamente para responder preguntas sobre nuestros servicios de AI Engineering. 
-        Puede ayudarte a entender nuestras capacidades técnicas, explicar metodologías de implementación, 
-        y si estás listo para dar el siguiente paso, completar el formulario para agendar una 
-        <strong>consulta técnica personalizada</strong> con nuestros especialistas.
-      </p>
-      
-      <div class="cta-buttons">
-        <a href="#" class="btn btn-primary">
-          <i class="fas fa-comments"></i> Conversar con Emil-IA
-        </a>
-        <a href="#" class="btn btn-secondary">
-          <i class="fas fa-calendar-alt"></i> Ir Directo al Formulario
-        </a>
-      </div>
-      
-      <script
-        src='https://cdn.jotfor.ms/agent/embedjs/0196d64eea127ec4a1bc7a77821b2d18d3d2/embed.js?skipWelcome=1&maximizable=1'>
-      </script>
-    </div>
-  </section>
+      <p style="margin-bottom: 2rem; font-size: 1.1rem
