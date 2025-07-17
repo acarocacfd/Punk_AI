@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zoro AI | AI Engineering & Consulting Excellence</title>
+  <title>Luffy AI | AI Engineering & Consulting Excellence</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -581,7 +581,7 @@
     <div class="nav-container">
       <div class="logo-container">
         <div class="logo-placeholder">K</div>
-        <div class="logo-text">Zoro AI</div>
+        <div class="logo-text">Luffy AI</div>
       </div>
       <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
@@ -784,7 +784,7 @@
     <div class="about-content">
       <div class="about-text">
         <p>
-          Zoro AI está conformado por un equipo de <strong>AI Specialists</strong> y <strong>Software Engineers</strong> 
+          Luffy AI está conformado por un equipo de <strong>AI Specialists</strong> y <strong>Software Engineers</strong> 
           con experiencia comprobada en el diseño, desarrollo e implementación de soluciones de inteligencia artificial 
           a escala empresarial.
         </p>
@@ -838,16 +838,17 @@
         // Function to set the fullPageURL field using postMessage
         function setFullPageURL() {
           const iframe = document.querySelector('iframe[src*="jotfor.ms"]');
-          if (!iframe) return;
+          if (!iframe) {
+            console.log("Jotform iframe not found.");
+            return;
+          }
 
           const currentURL = encodeURIComponent(window.location.href);
-          const message = {
-            type: "control_set_value",
-            field: "fullPageURL", // Field name as shown in your Jotform
-            value: currentURL
-          };
+          const messages = [
+            { type: "control_set_value", field: "fullPageURL", value: currentURL }, // Try field name
+            { type: "control_set_value", field: "input_6", value: currentURL }      // Try field ID
+          ];
 
-          // Send message multiple times to ensure it catches the form load
           const MAX_ATTEMPTS = 10;
           let attempts = 0;
 
@@ -857,8 +858,10 @@
               console.log("Max attempts reached for setting fullPageURL.");
               return;
             }
-            iframe.contentWindow.postMessage(message, '*');
-            console.log(`Attempt ${attempts + 1}: Setting fullPageURL to ${currentURL}`);
+            messages.forEach(message => {
+              iframe.contentWindow.postMessage(message, '*');
+              console.log(`Attempt ${attempts + 1}: Setting ${message.field} to ${currentURL}`);
+            });
             attempts++;
           }, 700);
         }
@@ -886,7 +889,7 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Zoro AI. Todos los derechos reservados.</p>
+    <p>© 2025 Luffy AI. Todos los derechos reservados.</p>
   </footer>
 
 </body>
