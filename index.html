@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Punk AI | AI Engineering & Consulting Excellence</title>
+  <title>Monkey AI | AI Engineering & Consulting Excellence</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -581,7 +581,7 @@
     <div class="nav-container">
       <div class="logo-container">
         <div class="logo-placeholder">K</div>
-        <div class="logo-text">Punk AI</div>
+        <div class="logo-text">Monkey AI</div>
       </div>
       <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
@@ -784,7 +784,7 @@
     <div class="about-content">
       <div class="about-text">
         <p>
-          Punk AI está conformado por un equipo de <strong>AI Specialists</strong> y <strong>Software Engineers</strong> 
+          Monkey AI está conformado por un equipo de <strong>AI Specialists</strong> y <strong>Software Engineers</strong> 
           con experiencia comprobada en el diseño, desarrollo e implementación de soluciones de inteligencia artificial 
           a escala empresarial.
         </p>
@@ -830,27 +830,30 @@
       src='https://cdn.jotfor.ms/agent/embedjs/0196d64eea127ec4a1bc7a77821b2d18d3d2/embed.js?skipWelcome=1&maximizable=1'>
     </script>
     <script>
-    window.addEventListener("message", function (event) {
-      if (event.origin.includes("jotform")) {
+      window.addEventListener("message", function (event) {
+        if (!event.origin.includes("jotform")) return;
+    
         const data = event.data;
-        // Espera que se cargue el formulario
+        
         if (typeof data === "string" && data.includes("formLoaded")) {
           const iframe = document.querySelector("iframe[src*='jotform']");
           if (!iframe) return;
-  
-          // Aquí puedes cambiar "fullPageURL" por el NOMBRE EXACTO del campo en Jotform
-          iframe.contentWindow.postMessage(
-            {
-              type: "control_set_value",
-              field: "fullPageURL",
-              value: window.location.href
-            },
-            "*"
-          );
+    
+          // Espera 200ms para asegurar que el formulario está renderizado
+          setTimeout(() => {
+            iframe.contentWindow.postMessage(
+              {
+                type: "control_set_value",
+                field: "fullPageURL", // NOMBRE del campo (no ID)
+                value: window.location.href
+              },
+              "*"
+            );
+          }, 200);
         }
-      }
-    });
+      });
   </script>
+  
 
   </section>
 
