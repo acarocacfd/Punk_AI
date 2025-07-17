@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luffy AI | AI Engineering & Consulting Excellence</title>
+  <title>Sanjo AI | AI Engineering & Consulting Excellence</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -581,7 +581,7 @@
     <div class="nav-container">
       <div class="logo-container">
         <div class="logo-placeholder">K</div>
-        <div class="logo-text">Luffy AI</div>
+        <div class="logo-text">Sanjo AI</div>
       </div>
       <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
@@ -784,7 +784,7 @@
     <div class="about-content">
       <div class="about-text">
         <p>
-          Luffy AI está conformado por un equipo de <strong>AI Specialists</strong> y <strong>Software Engineers</strong> 
+          Sanjo AI está conformado por un equipo de <strong>AI Specialists</strong> y <strong>Software Engineers</strong> 
           con experiencia comprobada en el diseño, desarrollo e implementación de soluciones de inteligencia artificial 
           a escala empresarial.
         </p>
@@ -830,66 +830,25 @@
       </p>
     </div>
     <div class="contact-container">
-      <!-- Agente de Jotform embebido -->
+      <!-- Agente de Jotform embebido with URL parameter -->
       <script
-        src='https://cdn.jotfor.ms/agent/embedjs/0196d64eea127ec4a1bc7a77821b2d18d3d2/embed.js?skipWelcome=1&maximizable=1'>
+        src='https://cdn.jotfor.ms/agent/embedjs/0196d64eea127ec4a1bc7a77821b2d18d3d2/embed.js?skipWelcome=1&maximizable=1&fullPageURL=<%= encodeURIComponent(window.location.href) %>'>
       </script>
       <script>
-        // Function to set the fullPageURL field using postMessage
-        function setFullPageURL() {
-          const iframe = document.querySelector('iframe[src*="jotfor.ms"]');
-          if (!iframe) {
-            console.log("Jotform iframe not found.");
-            return;
+        // Dynamically adjust the script src to include the current URL
+        document.addEventListener('DOMContentLoaded', function() {
+          const script = document.querySelector('script[src*="jotfor.ms"]');
+          if (script) {
+            const currentURL = encodeURIComponent(window.location.href);
+            script.src = `https://cdn.jotfor.ms/agent/embedjs/0196d64eea127ec4a1bc7a77821b2d18d3d2/embed.js?skipWelcome=1&maximizable=1&fullPageURL=${currentURL}`;
           }
-
-          const currentURL = encodeURIComponent(window.location.href);
-          const messages = [
-            { type: "control_set_value", field: "fullPageURL", value: currentURL }, // Try field name
-            { type: "control_set_value", field: "input_6", value: currentURL }      // Try field ID
-          ];
-
-          const MAX_ATTEMPTS = 10;
-          let attempts = 0;
-
-          const interval = setInterval(() => {
-            if (attempts >= MAX_ATTEMPTS) {
-              clearInterval(interval);
-              console.log("Max attempts reached for setting fullPageURL.");
-              return;
-            }
-            messages.forEach(message => {
-              iframe.contentWindow.postMessage(message, '*');
-              console.log(`Attempt ${attempts + 1}: Setting ${message.field} to ${currentURL}`);
-            });
-            attempts++;
-          }, 700);
-        }
-
-        // Observe DOM changes to detect when the iframe is added
-        const observer = new MutationObserver((mutations) => {
-          for (const mutation of mutations) {
-            if (mutation.addedNodes.length > 0 && document.querySelector('iframe[src*="jotfor.ms"]')) {
-              setFullPageURL();
-            }
-          }
-        });
-
-        observer.observe(document.body, {
-          childList: true,
-          subtree: true
-        });
-
-        // Initial check after page load
-        window.addEventListener('load', () => {
-          setTimeout(setFullPageURL, 1000); // Delay to ensure iframe is ready
         });
       </script>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 Luffy AI. Todos los derechos reservados.</p>
+    <p>© 2025 Sanjo AI. Todos los derechos reservados.</p>
   </footer>
 
 </body>
