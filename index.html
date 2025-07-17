@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kroko AI | AI Engineering & Consulting Excellence</title>
+  <title>Punk AI | AI Engineering & Consulting Excellence</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -829,6 +829,29 @@
     <script
       src='https://cdn.jotfor.ms/agent/embedjs/0196d64eea127ec4a1bc7a77821b2d18d3d2/embed.js?skipWelcome=1&maximizable=1'>
     </script>
+    <script>
+    window.addEventListener("message", function (event) {
+      if (event.origin.includes("jotform")) {
+        const data = event.data;
+        // Espera que se cargue el formulario
+        if (typeof data === "string" && data.includes("formLoaded")) {
+          const iframe = document.querySelector("iframe[src*='jotform']");
+          if (!iframe) return;
+  
+          // Aquí puedes cambiar "fullPageURL" por el NOMBRE EXACTO del campo en Jotform
+          iframe.contentWindow.postMessage(
+            {
+              type: "control_set_value",
+              field: "fullPageURL",
+              value: window.location.href
+            },
+            "*"
+          );
+        }
+      }
+    });
+  </script>
+
   </section>
 
 
