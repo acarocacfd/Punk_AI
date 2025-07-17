@@ -823,68 +823,71 @@
   </section>
 
   <section id="contacto">
-    <h2>Contáctanos</h2>
-    <p>Un agente virtual te guiará para que puedas agendar una demo, resolver dudas o solicitar una cotización.</p>
-    <!-- Agente de Jotform embebido -->
-    <script
-      src='https://cdn.jotfor.ms/agent/embedjs/0196d64eea127ec4a1bc7a77821b2d18d3d2/embed.js?skipWelcome=1&maximizable=1'>
-    </script>
-    <script>
-      function setearCampoFullPageURL() {
-        const iframe = document.querySelector("iframe[src*='jotform']");
-        if (!iframe) return;
-    
-        // Mandamos el mensaje varias veces por si el campo aún no está listo
-        const valor = window.location.href;
-        const mensaje = {
-          type: "control_set_value",
-          field: "fullPageURL",
-          value: valor
-        };
-    
-        const INTENTOS_MAX = 10;
-        let intentos = 0;
-    
-        const intervalo = setInterval(() => {
-          if (intentos >= INTENTOS_MAX) {
-            clearInterval(intervalo);
-            return;
-          }
-          iframe.contentWindow.postMessage(mensaje, "*");
-          console.log(`Intento ${intentos + 1}: Seteando fullPageURL con ${valor}`);
-          intentos++;
-        }, 700);
-      }
-    
-      // Detectar cambios visuales (apertura de formularios o carga del iframe)
-      const observer = new MutationObserver((mutations) => {
-        for (const mutation of mutations) {
-          if (
-            mutation.addedNodes.length > 0 &&
-            document.querySelector("iframe[src*='jotform']")
-          ) {
-            setearCampoFullPageURL();
-          }
+    <div class="section-header">
+      <h2 class="section-title">Contáctanos</h2>
+      <p class="section-subtitle">
+        Un agente virtual te guiará para que puedas agendar una demo, resolver dudas o solicitar una cotización.
+      </p>
+    </div>
+    <div class="contact-container">
+      <!-- Agente de Jotform embebido -->
+      <script
+        src='https://cdn.jotfor.ms/agent/embedjs/0196d64eea127ec4a1bc7a77821b2d18d3d2/embed.js?skipWelcome=1&maximizable=1'>
+      </script>
+      <script>
+        // Function to set the fullPageURL field using postMessage
+        function setFullPageURL() {
+          const iframe = document.querySelector('iframe[src*="jotfor.ms"]');
+          if (!iframe) return;
+
+          const currentURL = encodeURIComponent(window.location.href);
+          const message = {
+            type: "control_set_value",
+            field: "fullPageURL", // Field name as shown in your Jotform
+            value: currentURL
+          };
+
+          // Send message multiple times to ensure it catches the form load
+          const MAX_ATTEMPTS = 10;
+          let attempts = 0;
+
+          const interval = setInterval(() => {
+            if (attempts >= MAX_ATTEMPTS) {
+              clearInterval(interval);
+              console.log("Max attempts reached for setting fullPageURL.");
+              return;
+            }
+            iframe.contentWindow.postMessage(message, '*');
+            console.log(`Attempt ${attempts + 1}: Setting fullPageURL to ${currentURL}`);
+            attempts++;
+          }, 700);
         }
-      });
-    
-      // Observa todo el documento por cambios
-      observer.observe(document.body, {
-        childList: true,
-        subtree: true
-      });
-    
-      // Por si el iframe ya está cargado en el inicio
-      window.addEventListener("load", () => {
-        setTimeout(setearCampoFullPageURL, 1000);
-      });
-    </script>
 
+        // Observe DOM changes to detect when the iframe is added
+        const observer = new MutationObserver((mutations) => {
+          for (const mutation of mutations) {
+            if (mutation.addedNodes.length > 0 && document.querySelector('iframe[src*="jotfor.ms"]')) {
+              setFullPageURL();
+            }
+          }
+        });
 
-  
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        });
 
+        // Initial check after page load
+        window.addEventListener('load', () => {
+          setTimeout(setFullPageURL, 1000); // Delay to ensure iframe is ready
+        });
+      </script>
+    </div>
   </section>
 
+  <footer>
+    <p>&copy; 2025 Luffy AI. Todos los derechos reservados.</p>
+  </footer>
 
-    <div class="contact-container">
-      <p style="margin-bottom: 2rem; font-size: 1.1rem
+</body>
+</html>
