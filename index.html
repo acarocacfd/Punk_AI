@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hazard AI | AI Engineering & Consulting Excellence</title>
+  <title>Luffy AI | AI Engineering & Consulting Excellence</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -581,7 +581,7 @@
     <div class="nav-container">
       <div class="logo-container">
         <div class="logo-placeholder">K</div>
-        <div class="logo-text">Hazard AI</div>
+        <div class="logo-text">Luffy AI</div>
       </div>
       <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
@@ -784,7 +784,7 @@
     <div class="about-content">
       <div class="about-text">
         <p>
-          Hazard AI está conformado por un equipo de <strong>AI Specialists</strong> y <strong>Software Engineers</strong> 
+          Luffy AI está conformado por un equipo de <strong>AI Specialists</strong> y <strong>Software Engineers</strong> 
           con experiencia comprobada en el diseño, desarrollo e implementación de soluciones de inteligencia artificial 
           a escala empresarial.
         </p>
@@ -830,42 +830,56 @@
       src='https://cdn.jotfor.ms/agent/embedjs/0196d64eea127ec4a1bc7a77821b2d18d3d2/embed.js?skipWelcome=1&maximizable=1'>
     </script>
     <script>
-        function setFullPageURL() {
-          const iframe = document.querySelector("iframe[src*='jotform']");
-          if (!iframe) return;
-      
-          try {
-            iframe.contentWindow.postMessage(
-              {
-                type: "control_set_value",
-                field: "fullPageURL",
-                value: window.location.href
-              },
-              "*"
-            );
-          } catch (e) {
-            console.warn("No se pudo establecer fullPageURL", e);
+      function setearCampoFullPageURL() {
+        const iframe = document.querySelector("iframe[src*='jotform']");
+        if (!iframe) return;
+    
+        // Mandamos el mensaje varias veces por si el campo aún no está listo
+        const valor = window.location.href;
+        const mensaje = {
+          type: "control_set_value",
+          field: "fullPageURL",
+          value: valor
+        };
+    
+        const INTENTOS_MAX = 10;
+        let intentos = 0;
+    
+        const intervalo = setInterval(() => {
+          if (intentos >= INTENTOS_MAX) {
+            clearInterval(intervalo);
+            return;
+          }
+          iframe.contentWindow.postMessage(mensaje, "*");
+          console.log(`Intento ${intentos + 1}: Seteando fullPageURL con ${valor}`);
+          intentos++;
+        }, 700);
+      }
+    
+      // Detectar cambios visuales (apertura de formularios o carga del iframe)
+      const observer = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+          if (
+            mutation.addedNodes.length > 0 &&
+            document.querySelector("iframe[src*='jotform']")
+          ) {
+            setearCampoFullPageURL();
           }
         }
-      
-        // Escucha cuando se abra el formulario desde el bot
-        window.addEventListener("message", function (event) {
-          if (!event.origin.includes("jotform")) return;
-      
-          const data = event.data;
-          
-          // Detecta el evento de carga real del formulario visible
-          if (typeof data === "string" && data.includes("formPageChanged")) {
-            // Esperamos unos milisegundos a que los inputs estén renderizados
-            setTimeout(setFullPageURL, 300);
-          }
-      
-          // También lo intenta en el primer formLoaded
-          if (typeof data === "string" && data.includes("formLoaded")) {
-            setTimeout(setFullPageURL, 300);
-          }
-        });
+      });
+    
+      // Observa todo el documento por cambios
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    
+      // Por si el iframe ya está cargado en el inicio
+      window.addEventListener("load", () => {
+        setTimeout(setearCampoFullPageURL, 1000);
+      });
     </script>
+
 
   
 
